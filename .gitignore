@@ -1,0 +1,10 @@
+__pycache__/
+
+venv
+
+.pypirc
+
+build/
+dist/
+
+georgian_numbers.egg-info
