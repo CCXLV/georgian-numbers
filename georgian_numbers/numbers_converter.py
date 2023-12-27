@@ -20,10 +20,13 @@ def number_converter(number: str) -> str:
         return result
 
 def text_converter(text: str) -> str:
-    numeric_strings = re.findall(r'\b\d+\b', text)
+    pattern = r'\b\d{1,4}\b'
+    years = re.findall(pattern, text)
 
-    for numeric_string in numeric_strings:
-        converted_number = number_converter(numeric_string)
-        text = text.replace(numeric_string, converted_number)
+    for year in years:
+        if len(year) <= 4:
+            text_year = number_converter(str(year))
+            if text_year:
+                text = text.replace(year, text_year)
 
     return text
